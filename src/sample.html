@@ -1,0 +1,47 @@
+<template>
+  <div class="flex flex-col h-full sm:w-2/3 lg:w-7/12 xl:w-4/12 m-auto">
+    <div
+      class="card blur m-auto shadow-xl w-full h-4/5 flex flex-col justify-center items-center"
+    >
+      <div class="">
+        <img src="@/assets/logo.png" class="h-32" alt="" />
+      </div>
+      <form class="flex flex-col my-16 w-3/5" @submit.prevent="login(form)">
+        <label for="email" class="mt-2">Email</label>
+        <input
+          required
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Type your email"
+          v-model="form.email"
+        />
+        <label for="email" class="mt-2">Password</label>
+        <input
+          required
+          type="password"
+          name="email"
+          placeholder="Password"
+          v-model="form.password"
+        />
+        <v-error :loader="loader"></v-error>
+
+        <v-button
+          :loading="loader"
+          class="bg-skin-primary mt-2"
+          >Login</v-button
+        >
+      </form>
+      <div class="flex flex-col">
+        <a href="" class="self-center text-xs mb-4"
+          >Don't have account?
+          <router-link class="underline" to="signup"> Signup </router-link>
+        </a>
+        <a href="" class="self-center text-xs">Forgot password?</a>
+        <p href="" class="self-center text-xs text-skin-muted mt-4">
+          Version 0.0.1
+        </p>
+      </div>
+    </div>
+  </div>
+</template>

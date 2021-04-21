@@ -1,13 +1,121 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {}
+    .light {
+        --color-text-default:230,47,7;
+        --color-text-muted:11,89,107;
+        --color-text-inverted:205,232,238;
+        --color-bg-base:70,18,23;
+        --color-bg-primary:18,194,233;
+        --color-bg-secondary:196,113,237;
+        --color-bg-accent:8,255,234;
+        --color-bg-success:7,245,157;
+        --color-bg-warning:232,119,19;
+        --color-bg-danger:246,249,289
+    }
+
+    .dark {
+        --color-text-default:199,199,199;
+        --color-bg-new:255,0,0;
+        --color-text-muted:194,194,194;
+        --color-text-inverted:14,10,20;
+        --color-bg-base:16,8,23;
+        --color-bg-primary:80,44,99;
+        --color-bg-secondary:52,8,74;
+        --color-bg-accent:15,68,138;
+        --color-bg-success:17,126,30;
+        --color-bg-warning:130,67,13;
+        --color-bg-danger:122,5,5;
+    }
+
+    .fresh {
+        --color-text-default:33,33,33;
+        --color-text-muted:99,99,99;
+        --color-text-inverted:230,230,230;
+        --color-bg-base:231,248,249;
+        --color-bg-primary:238,212,176;
+        --color-bg-secondary:232,221,150;
+        --color-bg-accent:162,217,58;
+        --color-bg-success:9,206,32;
+        --color-bg-warning:130,67,13;
+        --color-bg-danger:255,111,0
+    }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+@layer components {
+
+    *{
+        @apply tracking-wider;
+    }
+
+    button, input, select, textarea, .btn {
+        @apply focus:outline-none  
+        text-sm p-2 px-3 rounded-lg border border-skin-base  border-opacity-20;
+    }
+
+    input, select, textarea {
+       @apply bg-skin-base text-skin-default border border-skin-default border-opacity-25;
+    }
+
+    table th, label,a {
+        @apply text-xs text-skin-muted font-bold;
+    }
+
+    a {
+        @apply text-xs;
+    }
+
+    button, .btn {
+        @apply border border-skin-base border-opacity-10  text-skin-default  transition-all hover:bg-opacity-50 hover:text-opacity-100;
+    }
+
+    button:disabled, .btn:disabled, input:disabled, textarea:disabled, select:disabled {
+        @apply bg-opacity-20 text-opacity-40;
+    }
+    
+    .card {
+        @apply bg-skin-base bg-opacity-60 rounded-xl border border-skin-default border-opacity-20 shadow-xl;
+    }
+
+    .blur {
+        backdrop-filter: blur(12px);
+    }
+
+    .dash { 
+        @apply border-2 border-dashed border-yellow-600 rounded;
+    }
+
+    table {
+        @apply table-auto w-full text-skin-default;
+        backdrop-filter: blur(12px);
+    }
+
+
+    table thead tr{
+        @apply bg-skin-primary  text-skin-muted;
+    }
+
+    table tbody tr:nth-child(odd){
+        @apply bg-skin-base bg-opacity-60;
+    }
+    table tbody tr:nth-child(even){
+        @apply bg-skin-base bg-opacity-80;
+    }
+
+    table th, table td {
+        @apply p-4  text-sm text-left;
+    }
+
+
+    table tr td:first-child, table tr th:first-child {
+        @apply rounded-l-lg ;
+    }
+    table tr td:last-child, table tr th:last-child {
+        @apply rounded-r-lg;
+    }
+    
 }
